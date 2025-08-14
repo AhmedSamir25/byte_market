@@ -11,21 +11,7 @@ Route::get("/register", function () {
     return view("auth.register");
 })->name("register");
 
-Route::post("/register", function () {
-    // Registration logic
-    $validated = request()->validate([
-        "name" => "required|string|max:255",
-        "email" => "required|string|email|max:255|unique:users",
-        "password" => "required|string|min:8|confirmed",
-        "phone" => "nullable|string|max:20",
-        "terms" => "required|accepted",
-    ]);
-
-    return redirect("/dashboard")->with(
-        "success",
-        "Your account has been created successfully!",
-    );
-});
+Route::post("/register", function () {});
 
 Route::get("/forgot-password", function () {
     return view("auth.forgot-password");
